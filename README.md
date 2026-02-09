@@ -6,23 +6,26 @@
 
 ## 📸 App Interface
 
+### Main Dashboard & Interaction
 <div align="center">
-  <img src="screenshots/home_screen.png" width="24%" alt="Home Screen" />
-  <img src="screenshots/plus_button.png" width="24%" alt="Plus Button" />
-  <img src="screenshots/food_analytics.png" width="24%" alt="Food Analytics" />
-  <img src="screenshots/analytics.png" width="24%" alt="Analytics" />
+  <img src="screenshots/home_screen.png" width="32%" alt="Home Screen" />
+  <img src="screenshots/plus_button.png" width="32%" alt="Plus Button" />
+  <img src="screenshots/analytics.png" width="32%" alt="Analytics" />
 </div>
 
+### Smart Meal Entry Flow
 <div align="center">
-  <img src="screenshots/add_meal_1.png" width="24%" alt="Add Meal 1" />
-  <img src="screenshots/add_meal_2.png" width="24%" alt="Add Meal 2" />
-  <img src="screenshots/macro_adjustment.png" width="24%" alt="Macro Adjustment" />
-  <img src="screenshots/settings.png" width="24%" alt="Settings" />
+  <img src="screenshots/add_meal_1.png" width="32%" alt="Add Meal 1" />
+  <img src="screenshots/add_meal_2.png" width="32%" alt="Add Meal 2" />
+  <img src="screenshots/macro_adjustment.png" width="32%" alt="Macro Adjustment" />
 </div>
 
+### Insights & User Control
 <div align="center">
-  <img src="screenshots/notification_settings.png" width="24%" alt="Notification Settings" />
-  <img src="screenshots/personal_details.png" width="24%" alt="Personal Details" />
+  <img src="screenshots/food_analytics.png" width="32%" alt="Food Analytics" />
+  <img src="screenshots/settings.png" width="32%" alt="Settings" />
+  <img src="screenshots/notification_settings.png" width="16%" alt="Notification Settings" />
+  <img src="screenshots/personal_details.png" width="16%" alt="Personal Details" />
 </div>
 
 ---
