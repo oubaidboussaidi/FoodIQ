@@ -13,6 +13,14 @@ enum FoodUnit {
   const FoodUnit(this.label, this.multiplier);
 }
 
+
+class Food {
+  final String name;
+  final String emoji;
+  final double caloriesPerUnit;
+  final double proteinPerUnit;
+  final double carbsPerUnit;
+  final double fatPerUnit;
   final List<FoodUnit> allowedUnits;
   final FoodUnit defaultUnit;
 

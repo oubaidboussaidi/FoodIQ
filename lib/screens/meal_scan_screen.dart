@@ -23,6 +23,7 @@ class _MealScanScreenState extends State<MealScanScreen> {
   List<ScannedFood> _results = [];
   Map<String, double> _portions = {}; 
   File? _selectedImage;
+  String? _errorMessage;
 
   Future<void> _analyzeDescription() async {
     final text = _textController.text.trim();
@@ -31,6 +32,7 @@ class _MealScanScreenState extends State<MealScanScreen> {
     setState(() {
       _isLoading = true;
       _results = [];
+      _errorMessage = null; 
       FocusScope.of(context).unfocus(); 
     });
 
@@ -46,9 +48,9 @@ class _MealScanScreenState extends State<MealScanScreen> {
       }
     } catch (e) {
       if (mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Error: $e')),
-        );
+        setState(() {
+          _errorMessage = e.toString();
+        });
       }
     } finally {
       if (mounted) {
@@ -236,25 +238,20 @@ class _MealScanScreenState extends State<MealScanScreen> {
           if (_isLoading)
             const LinearProgressIndicator(color: Colors.black),
 
-          // 2. Results List
+          // 2. Results List / Error Message
           Expanded(
-            child: _results.isEmpty && !_isLoading
-                ? Center(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Icon(Icons.chat_bubble_outline, size: 60, color: Colors.grey[300]),
-                        const SizedBox(height: 16),
-                        Text("No food added yet", style: TextStyle(color: Colors.grey[400])),
-                      ],
-                    ),
-                  )
-                : ListView.separated(
-                    padding: const EdgeInsets.all(20),
-                    itemCount: _results.length,
-                    separatorBuilder: (c, i) => const SizedBox(height: 12),
-                    itemBuilder: (context, index) => _buildFoodCard(_results[index]),
-                  ),
+            child: _isLoading 
+              ? const Center(child: CircularProgressIndicator(color: Colors.black))
+              : _errorMessage != null
+                ? _buildBotMessage(_errorMessage!, isError: true)
+                : _results.isEmpty
+                    ? _buildBotMessage("I'm ready! Tell me what you ate and I'll crunch the numbers for you.")
+                    : ListView.separated(
+                        padding: const EdgeInsets.all(20),
+                        itemCount: _results.length,
+                        separatorBuilder: (c, i) => const SizedBox(height: 12),
+                        itemBuilder: (context, index) => _buildFoodCard(_results[index]),
+                      ),
           ),
           
           // 3. Save Summary
@@ -308,7 +305,70 @@ class _MealScanScreenState extends State<MealScanScreen> {
     return total;
   }
 
+  Widget _buildBotMessage(String message, {bool isError = false}) {
+    return Center(
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 40),
+        child: TweenAnimationBuilder<double>(
+          duration: const Duration(milliseconds: 400),
+          tween: Tween(begin: 0.0, end: 1.0),
+          curve: Curves.elasticOut,
+          builder: (context, value, child) {
+            return Transform.scale(
+              scale: value,
+              child: Opacity(
+                opacity: value.clamp(0.0, 1.0),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Container(
+                      padding: const EdgeInsets.all(12),
+                      decoration: BoxDecoration(
+                        color: isError ? Colors.red.withOpacity(0.1) : Colors.black.withOpacity(0.05),
+                        shape: BoxShape.circle,
+                      ),
+                      child: Icon(
+                        isError ? Icons.sentiment_very_dissatisfied : Icons.face,
+                        size: 48,
+                        color: isError ? Colors.red : Colors.black87,
+                      ),
+                    ),
+                    const SizedBox(height: 16),
+                    Container(
+                      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+                      decoration: BoxDecoration(
+                        color: isError ? Colors.red[50] : Colors.white,
+                        borderRadius: BorderRadius.circular(20),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black.withOpacity(0.05),
+                            blurRadius: 10,
+                            offset: const Offset(0, 4),
+                          ),
+                        ],
+                      ),
+                      child: Text(
+                        message,
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontSize: 16,
+                          color: isError ? Colors.red[900] : Colors.black87,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            );
+          },
+        ),
+      ),
+    );
+  }
+
   Widget _buildFoodCard(ScannedFood food) {
+    // ... rest of the method remains same
     double portion = _portions[food.name] ?? 100;
     double multiplier = portion / 100;
 

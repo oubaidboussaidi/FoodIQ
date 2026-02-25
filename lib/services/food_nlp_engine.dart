@@ -47,11 +47,12 @@ class FoodNlpEngine {
   static Map<String, String> _generateUsdaNames() {
     final Map<String, String> map = {
       // Manual mappings for categories/synonyms
-      "eggs": "Egg (Whole)",
-      "boiled egg": "Egg (Whole)",
-      "fried egg": "Egg (Whole)",
-      "scrambled eggs": "Egg (Whole)",
-      "omelette": "Egg (Whole)",
+      "egg": "Egg (Whole Boiled)",
+      "eggs": "Egg (Whole Boiled)",
+      "boiled egg": "Egg (Whole Boiled)",
+      "fried egg": "Egg (Fried)",
+      "scrambled eggs": "Egg (Scrambled)",
+      "omelette": "Egg (Scrambled)",
       "pasta": "Pasta (Cooked)",
       "spaghetti": "Pasta (Cooked)",
       "cheese": "Cheddar Cheese",
@@ -60,9 +61,17 @@ class FoodNlpEngine {
       "fries": "Fast foods, potatoes, french fried",
     };
 
-    // Add direct matches from our Database
+    // Add direct matches and shorthands from our Database
     for (var food in FoodDatabase.allFoods) {
-      map[food.name.toLowerCase()] = food.name;
+      final fullName = food.name.toLowerCase();
+      map[fullName] = food.name;
+      
+      // Add primary keyword (e.g., "chicken" for "Chicken Breast")
+      final parts = fullName.split(' ');
+      if (parts.length > 1) {
+        // We use putIfAbsent to ensure we don't overwrite more specific mappings
+        map.putIfAbsent(parts[0], () => food.name);
+      }
     }
 
     return map;

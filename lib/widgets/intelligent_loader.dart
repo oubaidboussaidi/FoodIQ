@@ -71,20 +71,20 @@ class _IntelligentLoaderState extends State<IntelligentLoader> with SingleTicker
                       children: [
                         // Soft Aura
                         Container(
-                          width: 200,
-                          height: 200,
+                          width: 250,
+                          height: 250,
                           decoration: BoxDecoration(
                             shape: BoxShape.circle,
                             boxShadow: [
                               BoxShadow(
-                                color: const Color(0xFF22C55E).withOpacity(0.08 * pulse),
-                                blurRadius: 40 * pulse,
-                                spreadRadius: 10 * pulse,
+                                color: const Color(0xFF22C55E).withOpacity(0.12 * pulse),
+                                blurRadius: 60 * pulse,
+                                spreadRadius: 20 * pulse,
                               ),
                               BoxShadow(
-                                color: const Color(0xFF3B82F6).withOpacity(0.05 * pulse),
-                                blurRadius: 60 * pulse,
-                                spreadRadius: 5 * pulse,
+                                color: const Color(0xFF3B82F6).withOpacity(0.08 * pulse),
+                                blurRadius: 80 * pulse,
+                                spreadRadius: 10 * pulse,
                               ),
                             ],
                           ),
@@ -94,13 +94,13 @@ class _IntelligentLoaderState extends State<IntelligentLoader> with SingleTicker
                         Transform.rotate(
                           angle: rotation,
                           child: Container(
-                            width: 150,
-                            height: 150,
+                            width: 200,
+                            height: 200,
                             decoration: BoxDecoration(
                               shape: BoxShape.circle,
                               border: Border.all(
-                                color: const Color(0xFF3B82F6).withOpacity(0.05),
-                                width: 1,
+                                color: const Color(0xFF3B82F6).withOpacity(0.08),
+                                width: 1.5,
                               ),
                             ),
                           ),
@@ -110,22 +110,22 @@ class _IntelligentLoaderState extends State<IntelligentLoader> with SingleTicker
                         Transform.rotate(
                           angle: -rotation * 0.7,
                           child: Container(
-                            width: 125,
-                            height: 125,
+                            width: 170,
+                            height: 170,
                             decoration: BoxDecoration(
                               shape: BoxShape.circle,
                               border: Border.all(
-                                color: const Color(0xFF22C55E).withOpacity(0.05),
-                                width: 1,
+                                color: const Color(0xFF22C55E).withOpacity(0.08),
+                                width: 1.5,
                               ),
                             ),
                             child: Align(
                               alignment: Alignment.topCenter,
                               child: Container(
-                                width: 5,
-                                height: 5,
+                                width: 8,
+                                height: 8,
                                 decoration: BoxDecoration(
-                                  color: const Color(0xFF22C55E).withOpacity(0.4),
+                                  color: const Color(0xFF22C55E).withOpacity(0.6),
                                   shape: BoxShape.circle,
                                 ),
                               ),
@@ -133,19 +133,19 @@ class _IntelligentLoaderState extends State<IntelligentLoader> with SingleTicker
                           ),
                         ),
 
-                        // The Logo (with subtle shadow instead of glow)
+                        // The Logo (Now bigger and more prominent)
                         Container(
-                          padding: const EdgeInsets.all(16),
-                          width: 110,
-                          height: 110,
+                          padding: const EdgeInsets.all(20),
+                          width: 150,
+                          height: 150,
                           decoration: BoxDecoration(
                             color: Colors.white,
                             shape: BoxShape.circle,
                             boxShadow: [
                               BoxShadow(
-                                color: Colors.black.withOpacity(0.04),
-                                blurRadius: 20,
-                                offset: const Offset(0, 10),
+                                color: Colors.black.withOpacity(0.06),
+                                blurRadius: 30,
+                                offset: const Offset(0, 15),
                               ),
                             ],
                           ),

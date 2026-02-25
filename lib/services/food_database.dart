@@ -51,9 +51,12 @@ class FoodDatabase {
     _f('Squid (Fried)', '🦑', 2.1, 0.15, 0.08, 0.13, [FoodUnit.g], FoodUnit.g),
     _f('Scallops (Cooked)', '🐚', 1.1, 0.2, 0.05, 0.01, [FoodUnit.g], FoodUnit.g),
 
-    // ===================== EGGS & DAIRY =====================
-    _f('Egg (Whole)', '🥚', 70.0, 6.0, 0.5, 5.0, [FoodUnit.piece], FoodUnit.piece, s: {'1 egg': 1, '2 eggs': 2, '3 eggs': 3}),
-    _f('Egg Whites', '🥚', 17.0, 3.6, 0.2, 0.0, [FoodUnit.piece, FoodUnit.g], FoodUnit.piece, s: {'Whites of 2 eggs': 2}),
+    // ===================== EGGS & DAIRY (WITH COOKING STYLES) =====================
+    _f('Egg (Whole Boiled)', '🥚', 78.0, 6.3, 0.6, 5.3, [FoodUnit.piece], FoodUnit.piece, s: {'1 egg': 1, '2 eggs': 2}),
+    _f('Egg (Fried)', '🍳', 90.0, 6.3, 0.6, 7.0, [FoodUnit.piece], FoodUnit.piece, s: {'1 fried egg': 1}),
+    _f('Egg (Scrambled)', '🍳', 100.0, 7.0, 1.0, 7.5, [FoodUnit.piece], FoodUnit.piece, s: {'Portion of 2 eggs': 2}),
+    _f('Egg (Poached)', '🥚', 75.0, 6.0, 0.5, 5.0, [FoodUnit.piece], FoodUnit.piece),
+    _f('Egg Whites (Boiled)', '🥚', 17.0, 3.6, 0.2, 0.0, [FoodUnit.piece, FoodUnit.g], FoodUnit.piece),
     _f('Delice Milk (Whole)', '🥛', 0.64, 0.032, 0.048, 0.035, [FoodUnit.ml, FoodUnit.l], FoodUnit.ml, s: {'1 glass (250ml)': 250, '1 cup (200ml)': 200, '1 bottle (1L)': 1000}),
     _f('Delice Milk (Skim)', '🥛', 0.34, 0.034, 0.05, 0.001, [FoodUnit.ml, FoodUnit.l], FoodUnit.ml),
     _f('Almond Milk (Unsweetened)', '🥛', 0.15, 0.004, 0.012, 0.011, [FoodUnit.ml, FoodUnit.l], FoodUnit.ml),
@@ -93,7 +96,7 @@ class FoodDatabase {
     _f('Bagel (Plain)', '🥯', 2.5, 0.1, 0.48, 0.01, [FoodUnit.piece, FoodUnit.g], FoodUnit.piece, s: {'1 bagel (90g)': 90}),
     _f('Croissant', '🥐', 4.0, 0.08, 0.45, 0.21, [FoodUnit.piece, FoodUnit.g], FoodUnit.piece, s: {'1 medium': 60}),
 
-    // ===================== VEGETABLES (ALMOST ALL) =====================
+    // ===================== VEGETABLES & POTATOES (WITH COOKING STYLES) =====================
     _f('Broccoli', '🥦', 0.34, 0.028, 0.066, 0.004, [FoodUnit.g], FoodUnit.g, s: {'1 cup (90g)': 90}),
     _f('Cauliflower', '🥦', 0.25, 0.019, 0.05, 0.003, [FoodUnit.g], FoodUnit.g),
     _f('Spinach (Raw)', '🥬', 0.23, 0.029, 0.036, 0.004, [FoodUnit.g], FoodUnit.g),
@@ -132,7 +135,9 @@ class FoodDatabase {
     _f('Pumpkin (Cooked)', '🎃', 0.26, 0.01, 0.06, 0.001, [FoodUnit.g], FoodUnit.g),
     _f('Okra (Gnaouia)', '🥗', 0.33, 0.019, 0.075, 0.002, [FoodUnit.g], FoodUnit.g),
     _f('Potato (Boiled)', '🥔', 0.87, 0.02, 0.2, 0.001, [FoodUnit.g], FoodUnit.g, s: {'Medium (150g)': 150}),
-    _f('Potato (Baked)', '🥔', 0.93, 0.025, 0.21, 0.001, [FoodUnit.g], FoodUnit.g),
+    _f('Potato (Fried / Fries)', '🍟', 3.12, 0.03, 0.41, 0.15, [FoodUnit.g], FoodUnit.g, s: {'Small portion': 100, 'Large portion': 250}),
+    _f('Potato (Mashed with Milk)', '🥣', 1.13, 0.02, 0.17, 0.04, [FoodUnit.g], FoodUnit.g, s: {'1 scoop': 100}),
+    _f('Potato (Baked / Jacket)', '🥔', 0.93, 0.025, 0.21, 0.001, [FoodUnit.g], FoodUnit.g),
     _f('Sweet Potato (Baked)', '🍠', 0.9, 0.02, 0.21, 0.001, [FoodUnit.g], FoodUnit.g),
 
     // ===================== FRUITS (MASSIVE LIST) =====================
@@ -184,7 +189,23 @@ class FoodDatabase {
     _f('Tahini', '🥣', 5.95, 0.17, 0.21, 0.53, [FoodUnit.g, FoodUnit.tbsp], FoodUnit.tbsp),
     _f('Mayonnaise', '🥣', 6.8, 0.01, 0.01, 0.75, [FoodUnit.tbsp, FoodUnit.g], FoodUnit.tbsp, s: {'1 tbsp': 15}),
 
-    // ===================== TUNISIAN DISHES & SPECIALTIES =====================
+    // ===================== TUNISIAN DISHES & SPECIALTIES (EXPANDED) =====================
+    _f('Lablabi (Plain)', '🥣', 1.4, 0.08, 0.22, 0.02, [FoodUnit.g], FoodUnit.g, s: {'1 bowl': 350}),
+    _f('Lablabi (With Egg and Tuna)', '🥣', 1.8, 0.12, 0.20, 0.08, [FoodUnit.g], FoodUnit.g, s: {'1 bowl': 400}),
+    _f('Ojja (With Merguez)', '🍳', 1.8, 0.09, 0.06, 0.15, [FoodUnit.g], FoodUnit.g, s: {'1 portion': 300}),
+    _f('Ojja (With Seafood)', '🍳', 1.3, 0.11, 0.05, 0.07, [FoodUnit.g], FoodUnit.g, s: {'1 portion': 300}),
+    _f('Salade Tunisienne', '🥗', 0.5, 0.02, 0.04, 0.03, [FoodUnit.g], FoodUnit.g, s: {'1 bowl': 200}),
+    _f('Mechouia (Olive Oil)', '🥗', 0.9, 0.02, 0.08, 0.06, [FoodUnit.g, FoodUnit.tbsp], FoodUnit.g, s: {'1 serving': 150}),
+    _f('Kafteji (Traditional)', '🥘', 2.3, 0.04, 0.15, 0.18, [FoodUnit.g], FoodUnit.g, s: {'1 portion': 250}),
+    _f('Market Batata (Potato Stew)', '🥘', 1.1, 0.06, 0.15, 0.04, [FoodUnit.g], FoodUnit.g),
+    _f('Market Jelbana (Pea Stew)', '🥘', 1.3, 0.08, 0.12, 0.06, [FoodUnit.g], FoodUnit.g),
+    _f('Market Loubia (Bean Stew)', '🥘', 1.4, 0.09, 0.18, 0.04, [FoodUnit.g], FoodUnit.g),
+    _f('Tunisian Rice (Jerbi)', '🍚', 1.6, 0.08, 0.25, 0.04, [FoodUnit.g], FoodUnit.g, s: {'1 plate': 350}),
+    _f('Sea Bream (Gilt-head / Daurade)', '🐟', 1.2, 0.2, 0.0, 0.05, [FoodUnit.g], FoodUnit.g),
+    _f('Sardines (Grilled)', '🐟', 1.9, 0.23, 0.0, 0.11, [FoodUnit.g], FoodUnit.g),
+    _f('Tunisian Tea (With Pine Nuts)', '🍵', 0.6, 0.01, 0.12, 0.02, [FoodUnit.ml], FoodUnit.ml, s: {'1 glass': 150}),
+    _f('Tunisian Tea (With Peanuts)', '🍵', 0.5, 0.01, 0.10, 0.01, [FoodUnit.ml], FoodUnit.ml, s: {'1 glass': 150}),
+    _f('Assida Pudding (Zgougou)', '🥣', 3.2, 0.06, 0.45, 0.15, [FoodUnit.g], FoodUnit.g, s: {'1 cup': 150}),
     _f('Lablabi (Chickpea Soup)', '🥣', 1.7, 0.08, 0.22, 0.05, [FoodUnit.g], FoodUnit.g, s: {'1 bowl': 350, 'Large bowl': 500}),
     _f('Fricassé', '🥪', 320.0, 12.0, 30.0, 16.0, [FoodUnit.piece], FoodUnit.piece, s: {'1 fricassé': 1, '2 fricassés': 2}),
     _f('Couscous (Meat & Veggies)', '🍛', 1.45, 0.07, 0.20, 0.04, [FoodUnit.g], FoodUnit.g, s: {'1 plate': 400, 'Large plate': 600}),
@@ -202,22 +223,66 @@ class FoodDatabase {
     _f('Assida (Plain)', '🥣', 1.4, 0.03, 0.3, 0.01, [FoodUnit.g], FoodUnit.g),
     _f('Mrouzia', '🥘', 2.2, 0.12, 0.15, 0.12, [FoodUnit.g], FoodUnit.g),
 
+    // ===================== INTERNATIONAL & FAST FOOD =====================
+    _f('Big Mac', '🍔', 2.57, 0.12, 0.2, 0.15, [FoodUnit.piece], FoodUnit.piece, s: {'1 burger': 215}),
+    _f('Chicken McNuggets', '🍗', 2.8, 0.15, 0.18, 0.16, [FoodUnit.piece, FoodUnit.g], FoodUnit.piece, s: {'6 pieces': 6, '9 pieces': 9}),
+    _f('Quarter Pounder with Cheese', '🍔', 2.6, 0.16, 0.18, 0.14, [FoodUnit.piece], FoodUnit.piece, s: {'1 burger': 200}),
+    _f('Subway Chicken Teriyaki (6 inch)', '🥪', 1.5, 0.11, 0.22, 0.02, [FoodUnit.piece], FoodUnit.piece, s: {'1 sub': 1}),
+    _f('KFC Zinger Burger', '🍔', 2.7, 0.14, 0.23, 0.13, [FoodUnit.piece], FoodUnit.piece, s: {'1 burger': 200}),
+    _f('Classic Beef Burger', '🍔', 2.5, 0.13, 0.2, 0.14, [FoodUnit.piece], FoodUnit.piece, s: {'1 burger': 180}),
+    _f('Margherita Pizza', '🍕', 2.6, 0.11, 0.3, 0.1, [FoodUnit.slice, FoodUnit.g], FoodUnit.slice, s: {'1 slice': 100, 'Whole Medium': 600}),
+    _f('Pepperoni Pizza', '🍕', 3.0, 0.12, 0.28, 0.14, [FoodUnit.slice, FoodUnit.g], FoodUnit.slice, s: {'1 slice': 100, 'Whole Medium': 600}),
+    _f('Greek Salad', '🥗', 0.9, 0.03, 0.05, 0.07, [FoodUnit.g], FoodUnit.g, s: {'1 bowl': 300}),
+    _f('Caesar Salad (No Dressing)', '🥗', 0.45, 0.04, 0.03, 0.02, [FoodUnit.g], FoodUnit.g),
+    _f('Caesar Dressing', '🥣', 4.5, 0.02, 0.04, 0.48, [FoodUnit.tbsp, FoodUnit.g], FoodUnit.tbsp, s: {'1 tbsp': 15}),
+    _f('Chicken Burrito', '🌯', 1.9, 0.12, 0.2, 0.07, [FoodUnit.piece], FoodUnit.piece, s: {'1 large burrito': 350}),
+    _f('Beef Taco (Soft)', '🌮', 2.1, 0.11, 0.19, 0.1, [FoodUnit.piece], FoodUnit.piece, s: {'1 taco': 100}),
+    _f('Spaghetti Carbonara', '🍝', 2.2, 0.09, 0.22, 0.11, [FoodUnit.g], FoodUnit.g, s: {'1 plate': 350}),
+    _f('Sushi Philadelphia Roll', '🍱', 1.8, 0.06, 0.24, 0.06, [FoodUnit.piece, FoodUnit.g], FoodUnit.piece, s: {'6 pieces': 6, '1 piece': 35}),
+
+    // ===================== BREAKFAST ITEMS =====================
+    _f('Pancakes (Plain)', '🥞', 2.3, 0.06, 0.28, 0.1, [FoodUnit.piece, FoodUnit.g], FoodUnit.piece, s: {'1 pancake': 50}),
+    _f('Waffles', '🧇', 2.9, 0.08, 0.33, 0.14, [FoodUnit.piece, FoodUnit.g], FoodUnit.piece, s: {'1 waffle': 75}),
+    _f('French Toast', '🍞', 2.3, 0.08, 0.25, 0.11, [FoodUnit.slice, FoodUnit.g], FoodUnit.slice, s: {'1 slice': 60}),
+    _f('Cornflakes', '🥣', 3.6, 0.07, 0.84, 0.01, [FoodUnit.g], FoodUnit.g, s: {'1 bowl (30g)': 30}),
+    _f('Granola (Honey Nuts)', '🥣', 4.8, 0.1, 0.6, 0.24, [FoodUnit.g], FoodUnit.g, s: {'1/2 cup (50g)': 50}),
+    _f('Muesli', '🥣', 3.7, 0.11, 0.65, 0.07, [FoodUnit.g], FoodUnit.g),
+    _f('English Muffin', '🥯', 2.3, 0.08, 0.45, 0.02, [FoodUnit.piece], FoodUnit.piece),
+    _f('Omelet (Two Eggs)', '🍳', 1.5, 0.11, 0.01, 0.11, [FoodUnit.piece], FoodUnit.piece, s: {'1 omelet': 1}),
+
+    // ===================== HEALTHY SNACKS & SUPPLEMENTS =====================
+    _f('Protein Bar (Average)', '🍫', 3.8, 0.35, 0.3, 0.12, [FoodUnit.piece, FoodUnit.g], FoodUnit.piece, s: {'1 bar': 60}),
+    _f('Whey Protein Powder', '🥤', 3.9, 0.8, 0.08, 0.06, [FoodUnit.g, FoodUnit.tbsp], FoodUnit.g, s: {'1 scoop (30g)': 30}),
+    _f('Creatine Monohydrate', '🧂', 0.0, 0.0, 0.0, 0.0, [FoodUnit.g, FoodUnit.tsp], FoodUnit.g, s: {'1 tsp (5g)': 5}),
+    _f('Casein Protein', '🥤', 3.7, 0.75, 0.1, 0.04, [FoodUnit.g, FoodUnit.tbsp], FoodUnit.g, s: {'1 scoop (30g)': 30}),
+    _f('Rice Cakes (Plain)', '🍪', 3.8, 0.08, 0.8, 0.03, [FoodUnit.piece, FoodUnit.g], FoodUnit.piece, s: {'1 cake': 9}),
+    _f('Greek Yogurt (Full Fat)', '🥣', 0.97, 0.09, 0.04, 0.05, [FoodUnit.g], FoodUnit.g, s: {'1 container (150g)': 150}),
+    _f('Skyr (High Protein Yogurt)', '🥣', 0.6, 0.11, 0.04, 0.002, [FoodUnit.g], FoodUnit.g, s: {'1 container (150g)': 150}),
+    _f('Hummus', '🥣', 1.7, 0.08, 0.14, 0.1, [FoodUnit.g, FoodUnit.tbsp], FoodUnit.tbsp, s: {'1 tbsp': 15, '1 small tub': 200}),
+
     // ===================== SNACKS, BEVERAGES & CONDIMENTS =====================
     _f('Major Biscuit', '🍪', 5.2, 0.07, 0.67, 0.24, [FoodUnit.g, FoodUnit.piece], FoodUnit.g, s: {'1 biscuit': 14, '1 pack (170g)': 170, '1/2 pack': 85}),
     _f('Dark Chocolate (70-85%)', '🍫', 5.98, 0.08, 0.46, 0.43, [FoodUnit.g, FoodUnit.piece], FoodUnit.g, s: {'1 square (10g)': 10}),
     _f('Milk Chocolate', '🍫', 5.35, 0.08, 0.59, 0.3, [FoodUnit.g], FoodUnit.g),
     _f('Potato Chips', '🍟', 5.36, 0.07, 0.53, 0.35, [FoodUnit.g], FoodUnit.g, s: {'Small bag (28g)': 28}),
+    _f('Doritos (Nacho Cheese)', '🍟', 5.0, 0.08, 0.6, 0.26, [FoodUnit.g], FoodUnit.g, s: {'Small bag': 40}),
+    _f('Pringles (Original)', '🍟', 5.2, 0.04, 0.52, 0.33, [FoodUnit.g], FoodUnit.g),
     _f('Pretzels', '🥨', 3.8, 0.1, 0.8, 0.03, [FoodUnit.g], FoodUnit.g),
     _f('Honey', '🍯', 3.04, 0.003, 0.82, 0.0, [FoodUnit.g, FoodUnit.tbsp, FoodUnit.tsp], FoodUnit.tbsp, s: {'1 tsp': 7, '1 tbsp': 21}),
     _f('Maple Syrup', '🍁', 2.6, 0.0, 0.67, 0.0, [FoodUnit.tbsp, FoodUnit.g], FoodUnit.tbsp),
     _f('Coke / Soda (Regular)', '🥤', 0.42, 0.0, 0.1, 0.0, [FoodUnit.ml, FoodUnit.l], FoodUnit.ml, s: {'1 can (330ml)': 330}),
+    _f('Pepsi', '🥤', 0.43, 0.0, 0.11, 0.0, [FoodUnit.ml], FoodUnit.ml),
+    _f('Red Bull', '🥤', 0.45, 0.0, 0.11, 0.0, [FoodUnit.ml], FoodUnit.ml, s: {'1 can (250ml)': 250}),
     _f('Sugar-Free Soda', '🥤', 0.0, 0.0, 0.0, 0.0, [FoodUnit.ml, FoodUnit.l], FoodUnit.ml),
     _f('Coffee (Black)', '☕', 0.01, 0.0, 0.0, 0.0, [FoodUnit.ml], FoodUnit.ml),
+    _f('Cappuccino (Whole Milk)', '☕', 0.4, 0.02, 0.03, 0.02, [FoodUnit.ml], FoodUnit.ml, s: {'Regular': 240, 'Large': 350}),
+    _f('Latte (Whole Milk)', '☕', 0.6, 0.03, 0.05, 0.03, [FoodUnit.ml], FoodUnit.ml),
     _f('Tea (Green/Black - Plain)', '🍵', 0.01, 0.0, 0.0, 0.0, [FoodUnit.ml], FoodUnit.ml),
     _f('Orange Juice (100%)', '🍊', 0.45, 0.007, 0.1, 0.002, [FoodUnit.ml, FoodUnit.l], FoodUnit.ml, s: {'1 glass (250ml)': 250}),
     _f('Apple Juice', '🍎', 0.46, 0.0, 0.11, 0.0, [FoodUnit.ml, FoodUnit.l], FoodUnit.ml),
     _f('Beer', '🍺', 0.43, 0.005, 0.035, 0.0, [FoodUnit.ml], FoodUnit.ml, s: {'1 bottle (330ml)': 330}),
     _f('Wine (Red)', '🍷', 0.85, 0.0, 0.026, 0.0, [FoodUnit.ml], FoodUnit.ml, s: {'1 glass (150ml)': 150}),
+    _f('Vodka / Gin / Whisky', '🥃', 2.3, 0.0, 0.0, 0.0, [FoodUnit.ml], FoodUnit.ml, s: {'1 shot (44ml)': 44}),
     _f('Salt', '🧂', 0.0, 0.0, 0.0, 0.0, [FoodUnit.mg, FoodUnit.g, FoodUnit.tsp], FoodUnit.g),
     _f('Sugar (White)', '🍬', 4.0, 0.0, 1.0, 0.0, [FoodUnit.g, FoodUnit.tsp], FoodUnit.g, s: {'1 tsp': 4}),
     _f('Soy Sauce', '🍶', 0.6, 0.1, 0.05, 0.0, [FoodUnit.tbsp, FoodUnit.g], FoodUnit.tbsp),
@@ -247,6 +312,6 @@ class FoodDatabase {
       return a.name.length.compareTo(b.name.length);
     });
 
-    return results.take(10).toList(); // Show more results for a larger database
+    return results.take(15).toList(); // Show more results for a larger database
   }
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'services/storage_service.dart';
@@ -8,6 +9,10 @@ import 'widgets/intelligent_loader.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
+  
+  // Set full screen mode
+  SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky);
+
   runApp(const BootstrapApp());
 }
 
